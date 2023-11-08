@@ -225,6 +225,38 @@ h1 {
     width: 1.75rem;
 }
 
+.restart-button {
+    margin: auto;
+    width: fit-content;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 0;
+}
+
+.restart-button-inner-wrapper {
+    display: inline-block;
+    background-color: var(--color-success);
+    color: var(--color-gray-900);
+    padding: 24px 16px;
+    border-radius: 2px;
+    transition: transform 500ms, box-shadow 500ms;
+    box-shadow: 
+        0.5px 1px 2px hsl(0deg 0% 0% / 0.36),
+        1px 2px 4px hsl(0deg 0% 0% / 0.32),
+        2px 4px 8px hsl(0deg 0% 0% / 0.28),
+        3px 6px 16px hsl(0deg 0% 0% / 0.24);
+}
+
+.restart-button:hover .restart-button-inner-wrapper {
+    transform: translate(-4px, -4px);
+    box-shadow: 
+        1px 2px 4px hsl(0deg 0% 0% / 0.24),
+        2px 4px 8px hsl(0deg 0% 0% / 0.24),
+        4px 8px 16px hsl(0deg 0% 0% / 0.24),
+        8px 16px 32px hsl(0deg 0% 0% / 0.24);
+    transition: transform 250ms, box-shadow 250ms;
+}
+
 /*
   Modal styles
 
