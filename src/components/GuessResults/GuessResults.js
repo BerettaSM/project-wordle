@@ -9,7 +9,10 @@ function GuessResults({ guesses }) {
     return (
         <div className="guess-results">
             {range(NUM_OF_GUESSES_ALLOWED).map((i) => (
-                <Guess key={crypto.randomUUID()}>{guesses[i]}</Guess>
+                <Guess
+                    key={guesses[i]?.id || crypto.randomUUID()}
+                    guess={guesses[i]}
+                />
             ))}
         </div>
     );
