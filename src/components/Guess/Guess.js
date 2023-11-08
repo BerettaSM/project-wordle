@@ -7,11 +7,11 @@ function Guess({ guess }) {
         <p className="guess">
             {range(5).map((i) => {
                 const letter = guess ? guess.result[i].letter : '';
-                const statusClass = guess ? guess.result[i].status : '';
                 const key = guess ? guess.result[i].id : crypto.randomUUID();
-                const className = `cell ${statusClass}`;
+                const statusClassName = guess ? guess.result[i].status : '';
+                const fullClassName = `cell ${statusClassName}`;
                 return (
-                    <span className={className} key={key} id={key}>
+                    <span className={fullClassName} key={key}>
                         {letter}
                     </span>
                 );

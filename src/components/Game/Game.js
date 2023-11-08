@@ -7,6 +7,8 @@ import { sample } from '../../utils';
 import { WORDS } from '../../data';
 
 import { checkGuess } from '../../game-helpers';
+import Banner from '../Banner/Banner';
+import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
@@ -21,18 +23,30 @@ function Game() {
             ...prevGuesses,
             {
                 id: crypto.randomUUID(),
-                result: checkGuess(guess, answer).map((o) => ({
-                    ...o,
-                    id: crypto.randomUUID(),
-                })),
+                result: checkGuess(guess, answer).map((o) => {
+                    return {
+                        ...o,
+                        id: crypto.randomUUID(),
+                    };
+                }),
+                isCorrect: guess === answer,
             },
         ]);
     }
+    const lastGuess = guesses[guesses.length - 1];
+    const isWinner = lastGuess && lastGuess.isCorrect;
+    const isGameOver = guesses.length === NUM_OF_GUESSES_ALLOWED;
 
     return (
         <>
             <GuessResults guesses={guesses} />
-            <GuessInput onSubmit={addGuess} />
+            <GuessInput onSubmit={addGuess} disabled={isWinner || isGameOver} />
+            <Banner
+                answer={answer}
+                numOfGuesses={guesses.length}
+                isWinner={isWinner}
+                isGameOver={isGameOver}
+            />
         </>
     );
 }
