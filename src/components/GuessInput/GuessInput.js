@@ -6,7 +6,9 @@ function GuessInput({ onSubmit }) {
 
     function submitHandler(event) {
         event.preventDefault();
-        onSubmit(inputValue);
+        if(inputValue) {
+            onSubmit(inputValue);
+        }
         clearInput();
     }
 
