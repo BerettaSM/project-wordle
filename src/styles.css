@@ -124,17 +124,20 @@ h1 {
   --radius: 0px 0px 0px 4px;
 }
 
-.cell.correct {
+.cell.correct,
+.keyboard-key.correct {
   background: var(--color-success);
   border-color: var(--color-success);
   color: white;
 }
-.cell.incorrect {
+.cell.incorrect,
+.keyboard-key.incorrect {
   background: var(--color-gray-300);
   border-color: var(--color-gray-300);
   color: white;
 }
-.cell.misplaced {
+.cell.misplaced,
+.keyboard-key.misplaced {
   background: var(--color-warning);
   border-color: var(--color-warning);
   color: white;
@@ -194,6 +197,32 @@ h1 {
   margin: -1px;
   padding: 0;
   border: 0;
+}
+
+/* Stretch goal styles */
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.keyboard-row {
+    display: flex;
+    gap: 4px;
+}
+
+.keyboard-key {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+    background-color: rgb(216, 212, 212);
+    border-radius: 4px;
+    text-transform: uppercase;
+    height: 1.75rem;
+    width: 1.75rem;
 }
 
 /*

@@ -6,7 +6,7 @@ function GuessInput({ onSubmit, ...delegated }) {
     function submitHandler(event) {
         event.preventDefault();
         if (inputValue) {
-            onSubmit(inputValue.toUpperCase());
+            onSubmit(inputValue);
         }
         clearInput();
     }
@@ -25,7 +25,7 @@ function GuessInput({ onSubmit, ...delegated }) {
                 pattern="[A-Z]{5}"
                 value={inputValue}
                 onChange={(event) => {
-                    setInputValue(event.target.value);
+                    setInputValue(event.target.value.toUpperCase());
                 }}
             />
         </form>

@@ -6,9 +6,9 @@ function Guess({ guess }) {
     return (
         <p className="guess">
             {range(5).map((i) => {
-                const letter = guess ? guess.result[i].letter : '';
-                const key = guess ? guess.result[i].id : crypto.randomUUID();
-                const statusClassName = guess ? guess.result[i].status : '';
+                const letter = guess ? guess.results[i].letter : '';
+                const key = guess ? guess.results[i].id : crypto.randomUUID();
+                const statusClassName = guess ? guess.results[i].status : '';
                 const fullClassName = `cell ${statusClassName}`;
                 return (
                     <span className={fullClassName} key={key}>
